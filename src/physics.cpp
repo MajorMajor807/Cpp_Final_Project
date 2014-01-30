@@ -1,25 +1,22 @@
-
-
-
-
-#include "physics.h"
-#include "VECTOR3.h"
+#include <physics.h>
+#include <VECTOR3.h>
 #include <iostream>
 
+/*
 nBody::nBody() : 
-
-
-
 nBody::~nBody() {
 
 }
-int nBodies = 
+*/
+
+//int nBodies = 
 //number of bodies in the system
-int total_a_x = 0;
-int total_a_y = 0;
-int total_a_z = 0;
-vector nBodyList =
-Vector3f nBody::vecAcc(Vector3f r1, Vector3f r2, float m_1) {
+//int total_a_x = 0;
+//int total_a_y = 0;
+//int total_a_z = 0;
+//vector nBodyList =
+
+/*Vector3f*/ nBody::vecAcc(Vector3f r1, Vector3f r2, float m_1) {
 	Vector3f new_a = 0;
 	for (i = 0; i < distance; i++) {
 		float distance = (r1-r2).nom();
@@ -57,3 +54,6 @@ Vector3f nBody::vecPos(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1) {
 }
 
 
+int main() {
+	return 0;
+}
