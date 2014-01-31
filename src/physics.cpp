@@ -1,31 +1,27 @@
-#include "physics.h"
+// SWH-- I'm in the process of updating this to interface with `readstuff.cpp` ---SWH
+
 #include "VECTOR3.h"
 #include <iostream>
+#include <vector>
+#include <readstuff>
 
-/*
 nBody::nBody() : 
 nBody::~nBody() {
 
 }
-*/
-
-//This should not be defined here. It should be passed as an argument? I'm not sure ....
-// This is temporary.
-int nBodies = 10;
 //number of bodies in the system
-//int total_a_x = 0;
-//int total_a_y = 0;
-//int total_a_z = 0;
-//vector nBodyList =
+int total_a_x = 0;
+int total_a_y = 0;
+int total_a_z = 0;
+std::vector nBodyList = readstuff( "test.in");
+int nBodies = nBodyList.size();
 
-Vector3f nBody::vecAcc(/*Vector3f r1, Vector3f r2, float m_1*/) {
-	Vector3f new_a = Vector3f(0.0,0.0,0.0);
-	for (int i = 0; i < nBodies; i++) {
-		float distance = (r1-r2).norm();
+Vector3f nBody::vecAcc(Vector3f r1, Vector3f r2, float m_1) {
+	Vector3f new_a = 0;
+	for (i = 0; i < distance; i++) {
+		float distance = (r1-r2).nom();
 		if (distance != 0.0) {
-			// SWH--- I've done some casting into floats here to get it to compile.
-			//        but we should really be using Vector3d I think, for precision.
-			new_a = new_a + (float(6.67384 * pow(10, -11) * m_1)  * (r1-r2) / float(pow(distance, 3)));
+			new_a += 6.67384 * pow(10, -11) * m_1  * (r1-r2) / pow(distance, 3)
 			//calculates effect from an outside object on the object's acceleration
 			//and adds this effect to the new vector that will represent the new acceleration
 		}
@@ -33,24 +29,24 @@ Vector3f nBody::vecAcc(/*Vector3f r1, Vector3f r2, float m_1*/) {
 	return new_a;
 }
 
-Vector3f nBody::vecVel(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1, float dt) {
-	Vector3f new_v = Vector3f(0.0,0.0,0.0);
-	for (int i = 0; i < nBodies; i++) {
-		float distance = (r1-r2).norm();
+Vector3f nBody::vecVel(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1) {
+	Vector3f new_v = 0;
+	for (i = 0; i < nBodies; i++) {
+		float distance = (r1-r2).nom();
 		if (distance != 0.0) {
-			new_v = new_v + (v1 + a1 * dt);
+			new_v += v1 + a1 * dt;
 		}
 	}
 	return new_v;
 
 }
 
-Vector3f nBody::vecPos(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1, float dt) {
-	Vector3f new_r = Vector3f(0.0,0.0,0.0);
-	for (int i = 0; i < nBodies; i++) {
-		float distance = (r1-r2).norm();
+Vector3f nBody::vecPos(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1) {
+	Vector3f new_r = 0;
+	for (i = 0; i < nBodies; i++) {
+		float distance = (r1-r2).nom();
 		if (distance != 0.0) {
-			new_r = new_r + (r1 + v1 * dt + 0.5f * a1 * dt * dt);
+			new_r += r1 + v1 * dt + 0.5f * a1 * dt * dt;
 		}
 
 	}
@@ -58,9 +54,3 @@ Vector3f nBody::vecPos(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1, float
 }
 
 
-int main() {
-	return 0;
-}
-
-
-#endif
