@@ -26,7 +26,7 @@ class Body {
 
 };
 
-vector readFile( std::string fileName ) {
+std::vector<Body> readFile( std::string fileName ) {
 	std::ifstream fInput;
 	fInput.open( fileName );
 	std::string line;
@@ -53,3 +53,6 @@ vector readFile( std::string fileName ) {
 	return vecBodies;
 }
 
+int main() {
+	return 0;
+}
