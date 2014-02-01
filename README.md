@@ -1,32 +1,23 @@
 Cpp_Final_Project
 =================
 
-Existing Hierarchy
-------------------
+Intended Contents of `src/` and `include/nbody`
+------------------------------------------------
+
+###`src`
 
 ```
-.
-|-- build
-|-- include
-|   |-- physics.h
-|   |-- readstuff.h
-|   |-- Simulation.h
-|   `-- VECTOR3.h
-|-- LICENSE
-|-- README.md
-|-- src
-|   |-- nbody.cpp
-|   |-- physics.cpp
-|   `-- readstuff.cpp
-`-- test_files
-    `-- test.in
-
-4 directories, 10 files
-
+main.cpp
+system.cpp
+physics.cpp
 ```
 
-Current Goals
--------------
+###`include/nbody/`
 
-* SWH--- Get `physics.cpp` and `readstuff.cpp` to interface with eachother.
-  - Goal time: 17:00
+```
+vector3.h
+body.h
+system.h
+physics.h
+// Whatever is necessary for OpenGL
+```
