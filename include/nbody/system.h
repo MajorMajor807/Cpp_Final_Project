@@ -1,5 +1,12 @@
-// Include vector3, physics, body
+#ifndef _NBODY_SYSTEM_H
+#define _NBODY_SYSTEM_H
 
+#include <nbody/VECTOR3.h>
+#include <nbody/body.h>
+
+#include <string>
+#include <sstring>
+#include <vector>
 
 namespace nbody {
 class System {

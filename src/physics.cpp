@@ -1,15 +1,10 @@
-// SWH-- I'm in the process of updating this to interface with `readstuff.cpp` ---SWH
-
-#include "VECTOR3.h"
+#include <nbody/physics.h>
+#include <nbody/VECTOR3.h>
 #include <iostream>
 #include <vector>
-#include <readstuff>
+#include <nbody/body.h>
 
-nBody::nBody() : 
-nBody::~nBody() {
 
-}
-//number of bodies in the system
 int total_a_x = 0;
 int total_a_y = 0;
 int total_a_z = 0;
