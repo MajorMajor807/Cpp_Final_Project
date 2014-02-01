@@ -15,15 +15,9 @@ BUILD_DIR_PROJ := $(BUILD_DIR)/$(PROJ_NAME)
 ## named .cpp files). Add any extra files you want to have
 ## compiled here.
 OBJECTS_PROJ := \
-	$(BUILD_DIR_PROJ)/Body.o \
-	$(BUILD_DIR_PROJ)/System.o \
-	$(BUILD_DIR_PROJ)/Simulation.o \
-	$(BUILD_DIR_PROJ)/constants.o \
-	#$(BUILD_DIR_PROJ)/add.o \
-	#$(BUILD_DIR_PROJ)/any.o \
-	#$(BUILD_DIR_PROJ)/other.o \
-	#$(BUILD_DIR_PROJ)/files.o \
-	#$(BUILD_DIR_PROJ)/here.o \
+	$(BUILD_DIR_PROJ)/body.o \
+	$(BUILD_DIR_PROJ)/system.o \
+	$(BUILD_DIR_PROJ)/physics.o \
 ## Add more object files above as you write them!
 $(OBJECTS_PROJ) : | $(INSTALL_DIR)/include/$(PROJ_NAME) \
 										$(INSTALL_DIR)/bin/resources/$(PROJ_NAME) \

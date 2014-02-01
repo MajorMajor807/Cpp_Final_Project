@@ -5,7 +5,7 @@
 #include <nbody/body.h>
 
 #include <string>
-#include <sstring>
+#include <sstream>
 #include <vector>
 #include <stddef.h>
 
@@ -55,12 +55,12 @@ class System {
 
 	void evolve( float dt, float timereps ) {
 		// Do the following `timereps` times.
-		for (size_t iter; iter < _timereps; ++iter) {
+		for (size_t iter; iter < timereps; ++iter) {
 			// And do it for every body in the system.
 			for (size_t idx; idx < _nBodyList.size(); ++idx) {
 				_nBodyList[idx].set_a = nbody::vecAcc(_nBodyList[idx].get_r(), _nBodyList[idx].get_m());
-				_nBodyList[idx].set_v = nbody::vecVec(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a());
-				_nBodyList[idx].set_r = nbody::vecPos(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a());
+				_nBodyList[idx].set_v = nbody::vecVec(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a(), dt);
+				_nBodyList[idx].set_r = nbody::vecPos(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a(), dt);
 				
 			}
 		}
