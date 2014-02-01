@@ -1,9 +1,0 @@
-physics.cpp:21:59: error: ‘Vector3f nBody::vecAcc(Vector3f, Vector3f, float)’ should have been declared inside ‘nBody’
- Vector3f nBody::vecAcc(Vector3f r1, Vector3f r2, float m_1) {
-                                                           ^
-physics.cpp:36:84: error: ‘Vector3f nBody::vecVel(Vector3f, Vector3f, Vector3f, Vector3f, float)’ should have been declared inside ‘nBody’
- Vector3f nBody::vecVel(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1, float dt) {
-                                                                                    ^
-physics.cpp:48:84: error: ‘Vector3f nBody::vecPos(Vector3f, Vector3f, Vector3f, Vector3f, float)’ should have been declared inside ‘nBody’
- Vector3f nBody::vecPos(Vector3f r1, Vector3f r2, Vector3f v1, Vector3f a1, float dt) {
-                                                                                    ^
