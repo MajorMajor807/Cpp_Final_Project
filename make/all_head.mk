@@ -37,7 +37,7 @@ INCLUDE_FLAGS := -I$(INSTALL_DIR)/include \
 								 -I$(GTEST_DIR)
 
 ## Warning flags to use during compilation
-FLAGS := -m64 -Wall -Wextra -Wshadow -Werror -pedantic
+FLAGS := -m64 -Wall -Wextra -Wshadow -Werror -pedantic -framework openGL
 # Use the C99 standard
 CFLAGS := -std=c99 $(FLAGS)
 # Use the C++11 standard and warn on violations of Meyers' "Effective C++"
