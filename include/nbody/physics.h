@@ -5,9 +5,10 @@
 #include <nbody/VECTOR3.h>
 
 namespace nbody {
-	Vector3f vecAcc( Vector3f r1, float m_1 );
-	Vector3f vecVel(Vector3f r1, Vector3f v1, Vector3f a1, float dt);
 	Vector3f vecPos(Vector3f r1, Vector3f v1, Vector3f a1, float dt);
+	Vector3f vecVel(Vector3f r1, Vector3f v1, Vector3f a1, float dt);
+	Vector3f vecAcc( Vector3f r1, float m_1 );
+
 } //namespace nBody
 
 #endif
