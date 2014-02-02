@@ -26,7 +26,7 @@ class System {
 
 	std::vector<Body> readFile( std::string fileName );
 
-	void evolve( float dt, float timereps );
+	void evolve( double dt, double timereps );
 
 } // class System
 } // namespace nbody

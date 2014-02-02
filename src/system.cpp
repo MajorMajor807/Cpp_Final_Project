@@ -32,8 +32,8 @@ class System {
         	while( getline( fInput, line ) ) {
                 	std::istringstream linestream(line);
                 	if ( i != 0 ) {
-                        	Vector3f new_r, new_v, new_a;
-                        	float new_m;
+                        	Vector3d new_r, new_v, new_a;
+                        	double new_m;
 				// linestream is a string stream. line is a string that holds the current line in the file.
 				// This next line uses linestream to find candidates for all of the "new_" variables
 				// in the string stored in `line`.
@@ -52,14 +52,14 @@ class System {
         	return vecBodies;
 	}
 
-	void evolve( float dt, float timereps ) {
+	void evolve( double dt, double timereps ) {
 		// Do the following `timereps` times.
 		for (size_t iter; iter < timereps; ++iter) {
 			// And do it for every body in the system.
 			for (size_t idx; idx < get_nBodyList().size(); ++idx) {
-				get_nBodyList()[idx].set_a( nbody::vecAcc(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_m()));
-				get_nBodyList()[idx].set_v( nbody::vecVel(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
-				get_nBodyList()[idx].set_r(nbody::vecPos(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
+				get_nBodyList()[idx].set_a( nbody::vecAcc( get_nBodyList(), get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_m()));
+				get_nBodyList()[idx].set_v( nbody::vecVel( get_nBodyList(), get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
+				get_nBodyList()[idx].set_r(nbody::vecPos( get_nBodyList(), get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
 				
 			}
 		}

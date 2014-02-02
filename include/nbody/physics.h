@@ -3,11 +3,13 @@
 
 #include "nbody/physics.h"
 #include <nbody/VECTOR3.h>
+#include <nbody/body.h>
+#include <vector>
 
 namespace nbody {
-	Vector3f vecPos(Vector3f r1, Vector3f v1, Vector3f a1, float dt);
-	Vector3f vecVel(Vector3f r1, Vector3f v1, Vector3f a1, float dt);
-	Vector3f vecAcc( Vector3f r1, float m_1 );
+	Vector3d vecPos(std::vector<Body> syslist, Vector3d r1, Vector3d v1, Vector3d a1, double dt);
+	Vector3d vecVel(std::vector<Body> syslist, Vector3d r1, Vector3d v1, Vector3d a1, double dt);
+	Vector3d vecAcc(std::vector<Body> syslist, Vector3d r1, double m_1 );
 
 } //namespace nBody
 
