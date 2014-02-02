@@ -1,26 +1,25 @@
-#ifndef _NBODY_SYSTEM_H
-#define _NBODY_SYSTEM_H
-
 #include <nbody/VECTOR3.h>
 #include <nbody/body.h>
+#include <nbody/physics.h>
 
 #include <string>
 #include <sstream>
 #include <vector>
+#include <fstream>
 #include <stddef.h>
 
 namespace nbody {
 class System {
 	double _elapsed_time;
-	vector _nBodyList;
+	std::vector<Body> _nBodyList;
 
 	public:
 	
-	double get_elapsed_time() const {return _elapsed_time;}
-	vector get_nBodyList() const {return _nBodyList;}	
+	double get_elapsed_time() const {return _elapsed_time;};
+	std::vector<Body> get_nBodyList() const {return _nBodyList;};
 
-	void set_elapsed_time(double new_time) {_elapsed_time = new_time;}
-	void set_nBodyList(vector new_list) {_nBodyList = new_list;}
+	void set_elapsed_time(double new_time) {_elapsed_time = new_time;};
+	void set_nBodyList(std::vector<Body> new_list) {_nBodyList = new_list;};
 
 	std::vector<Body> readFile( std::string fileName ) {
 
@@ -40,11 +39,11 @@ class System {
 				// in the string stored in `line`.
                         	linestream >> new_r >> new_v >> new_a >> new_m ;
                         
-                        	Body newBody;
-                        	newBody.set_r(new_r);
-                        	newBody.set_v(new_v);
-                        	newBody.set_a(new_a);
-                        	newBody.set_m(new_m);
+                        	Body newBody(new_r, new_v, new_a, new_m);
+                        	//newBody.set_r(new_r);
+                        	//newBody.set_v(new_v);
+                        	//newBody.set_a(new_a);
+                        	//newBody.set_m(new_m);
                         	vecBodies.push_back(newBody);
                 	}
                 	i++;
@@ -57,15 +56,15 @@ class System {
 		// Do the following `timereps` times.
 		for (size_t iter; iter < timereps; ++iter) {
 			// And do it for every body in the system.
-			for (size_t idx; idx < _nBodyList.size(); ++idx) {
-				_nBodyList[idx].set_a = nbody::vecAcc(_nBodyList[idx].get_r(), _nBodyList[idx].get_m());
-				_nBodyList[idx].set_v = nbody::vecVec(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a(), dt);
-				_nBodyList[idx].set_r = nbody::vecPos(_nBodyList[idx].get_r(), _nBodyList[idx].get_v(), _nBodyList[idx].get_a(), dt);
+			for (size_t idx; idx < get_nBodyList().size(); ++idx) {
+				get_nBodyList()[idx].set_a( nbody::vecAcc(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_m()));
+				get_nBodyList()[idx].set_v( nbody::vecVel(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
+				get_nBodyList()[idx].set_r(nbody::vecPos(get_nBodyList()[idx].get_r(), get_nBodyList()[idx].get_v(), get_nBodyList()[idx].get_a(), dt));
 				
 			}
 		}
 			
 	}
 	
-} // class System
+}; // class System
 } // namespace nbody

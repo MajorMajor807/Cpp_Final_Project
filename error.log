@@ -1,0 +1,49 @@
+./src/physics.cpp:9:15: error: ‘nBodyList’ was not declared in this scope
+ int nBodies = nBodyList.size();
+               ^
+./src/physics.cpp: In function ‘Vector3f nbody::vecAcc(Vector3f, float)’:
+./src/physics.cpp:13:7: error: ‘i’ was not declared in this scope
+  for (i = 0; i < nBodies; i++) {
+       ^
+./src/physics.cpp:14:24: error: ‘nBodyList’ was not declared in this scope
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                        ^
+./src/physics.cpp:14:36: error: expected ‘)’ before ‘get_r’
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                                    ^
+./src/physics.cpp:16:49: error: ‘r2’ was not declared in this scope
+    new_a += 6.67384 * pow(10, -11) * m_1  * (r1-r2) / pow(distance, 3)
+                                                 ^
+./src/physics.cpp:19:3: error: expected ‘;’ before ‘}’ token
+   }
+   ^
+./src/physics.cpp: In function ‘Vector3f nbody::vecVel(Vector3f, Vector3f, Vector3f, float)’:
+./src/physics.cpp:25:26: error: missing template arguments before ‘(’ token
+  Vector3f new_v = Vector3(0.0,0.0,0.0);
+                          ^
+./src/physics.cpp:26:7: error: ‘i’ was not declared in this scope
+  for (i = 0; i < nBodies; i++) {
+       ^
+./src/physics.cpp:27:24: error: ‘nBodyList’ was not declared in this scope
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                        ^
+./src/physics.cpp:27:36: error: expected ‘)’ before ‘get_r’
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                                    ^
+./src/physics.cpp:29:10: error: no match for ‘operator+=’ (operand types are ‘Vector3f {aka Vector3<float>}’ and ‘const Vector3<float>’)
+    new_v += v1 + a1 * dt;
+          ^
+./src/physics.cpp: In function ‘Vector3f nbody::vecPos(Vector3f, Vector3f, Vector3f, float)’:
+./src/physics.cpp:38:7: error: ‘i’ was not declared in this scope
+  for (i = 0; i < nBodies; i++) {
+       ^
+./src/physics.cpp:39:24: error: ‘nBodyList’ was not declared in this scope
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                        ^
+./src/physics.cpp:39:36: error: expected ‘)’ before ‘get_r’
+   float distance = (r1-nBodyList[i]get_r()).nom();
+                                    ^
+./src/physics.cpp:41:10: error: no match for ‘operator+=’ (operand types are ‘Vector3f {aka Vector3<float>}’ and ‘const Vector3<float>’)
+    new_r += r1 + v1 * dt + 0.5f * a1 * dt * dt;
+          ^
+make: *** [build/nbody/physics.o] Error 1

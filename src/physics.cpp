@@ -9,7 +9,7 @@ namespace nbody {
 int nBodies = nBodyList.size();
 
 Vector3f vecAcc(Vector3f r1, float m_1) {
-	Vector3f new_a = 0;
+	Vector3f new_a = Vector3f( 0.0, 0.0, 0.0);
 	for (i = 0; i < nBodies; i++) {
 		float distance = (r1-nBodyList[i]get_r()).nom();
 		if (distance != 0.0) {
@@ -22,7 +22,7 @@ Vector3f vecAcc(Vector3f r1, float m_1) {
 }
 
 Vector3f vecVel(Vector3f r1, Vector3f v1, Vector3f a1, float dt) {
-	Vector3f new_v = 0;
+	Vector3f new_v = Vector3(0.0,0.0,0.0);
 	for (i = 0; i < nBodies; i++) {
 		float distance = (r1-nBodyList[i]get_r()).nom();
 		if (distance != 0.0) {
@@ -34,7 +34,7 @@ Vector3f vecVel(Vector3f r1, Vector3f v1, Vector3f a1, float dt) {
 }
 
 Vector3f vecPos(Vector3f r1, Vector3f v1, Vector3f a1, float dt) {
-	Vector3f new_r = 0;
+	Vector3f new_r = Vector3f(0.0,0.0,0.0);
 	for (i = 0; i < nBodies; i++) {
 		float distance = (r1-nBodyList[i]get_r()).nom();
 		if (distance != 0.0) {
